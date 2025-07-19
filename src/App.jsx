@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { Environment, OrthographicCamera } from "@react-three/drei";
+import { Environment, Loader, OrthographicCamera } from "@react-three/drei";
 import { UI } from "./components/UI";
 import { Cursor } from "./components/Cursor";
 // import SketchfabEmbed from "./components/SketchfabEmbed";
@@ -9,6 +9,7 @@ function App() {
    return (
       <>
          {/* <SketchfabEmbed /> */}
+         <Loader />
          <Canvas
             dpr={[1, 1.5]}
             shadows
