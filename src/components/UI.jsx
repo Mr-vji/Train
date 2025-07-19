@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export const UI = () => {
+   const containerRef = useRef(null);
+
+   useEffect(() => {
+      const ctx = gsap.context(() => {
+         gsap.from(".reveal", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0.2,
+         });
+      }, containerRef);
+
+      return () => ctx.revert(); // Clean up on unmount
+   }, []);
+
    return (
       <>
-         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none p-6 font-[Inter] pb-[50vh] md:pb-0">
+         <div
+            ref={containerRef}
+            className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none p-6 font-[Inter] pb-[50vh] md:pb-0"
+         >
             <div className="relative flex flex-col w-full h-full overflow-hidden text-white border border-gray-700 rounded-lg shadow-lg md:flex-row-reverse">
                {/* Left section (main content) */}
                <div className="flex flex-col items-end justify-start flex-1 p-8 space-y-4 text-left md:p-12 lg:p-16">
                   {/* Train Icon */}
-                  <div className="flex justify-end w-full">
+                  <div className="flex justify-end w-full reveal">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-12 h-12 text-purple-400 md:w-16 md:h-16"
@@ -26,17 +46,17 @@ export const UI = () => {
                   </div>
 
                   {/* Mobile title */}
-                  <h1 className="mb-4 text-3xl font-bold leading-tight md:hidden">
+                  <h1 className="mb-4 text-3xl font-bold leading-tight md:hidden reveal">
                      Book your train journey from Vijay
                   </h1>
 
                   {/* Desktop title */}
-                  <h1 className="hidden mb-4 text-5xl font-bold leading-tight md:block md:text-6xl lg:text-7xl">
+                  <h1 className="hidden mb-4 text-5xl font-bold leading-tight md:block md:text-6xl lg:text-7xl reveal">
                      Book Your Train Journey Instantly
                   </h1>
 
                   {/* Descriptions (hidden on mobile) */}
-                  <div className="hidden md:block">
+                  <div className="hidden md:block reveal">
                      <p className="max-w-md mb-4 text-lg md:text-xl">
                         Plan your travel with real-time train schedules, seat availability, and fare
                         details across India.
@@ -53,9 +73,9 @@ export const UI = () => {
                </div>
 
                {/* Right section (quick actions and info) */}
-               <div className="flex flex-col items-start justify-between p-8 space-y-8 md:p-12 lg:p-16">
+               <div className="flex flex-col items-start justify-between p-8 space-y-8 md:p-12 lg:p-16 reveal">
                   {/* View Trains Icon */}
-                  <div className="flex items-center space-x-2 text-purple-400 cursor-pointer">
+                  <div className="flex items-center space-x-2 text-purple-400 cursor-pointer reveal">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-6 h-6 md:w-8 md:h-8"
@@ -74,7 +94,7 @@ export const UI = () => {
                   </div>
 
                   {/* Services highlights */}
-                  <div>
+                  <div className="reveal">
                      <h3 className="mb-2 text-xl font-semibold">Our Services</h3>
                      <ul className="space-y-1 text-lg">
                         <li>• Instant ticket booking</li>
@@ -85,11 +105,11 @@ export const UI = () => {
                   </div>
 
                   {/* Website link */}
-                  <p className="text-lg md:text-xl">www.trainease.com</p>
+                  <p className="text-lg md:text-xl reveal">www.trainease.com</p>
                </div>
 
                {/* Bottom Right Button */}
-               <div className="absolute bottom-8 right-8">
+               <div className="absolute bottom-8 right-8 reveal">
                   <button className="px-6 py-3 text-lg font-semibold text-white bg-purple-500 rounded shadow pointer-events-auto hover:bg-purple-600 md:text-xl">
                      Book Now
                   </button>

@@ -9,7 +9,7 @@ function App() {
    return (
       <>
          {/* <SketchfabEmbed /> */}
-         <Loader />
+         {/* <Loader /> */}
          <Canvas
             dpr={[1, 1.5]}
             shadows
