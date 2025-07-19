@@ -3,7 +3,7 @@ import React from "react";
 export const UI = () => {
    return (
       <>
-         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none p-6 font-[Inter]">
+         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none p-6 font-[Inter] pb-[50vh] md:pb-0">
             <div className="relative flex flex-col w-full h-full overflow-hidden text-white border border-gray-700 rounded-lg shadow-lg md:flex-row-reverse">
                {/* Left section (main content) */}
                <div className="flex flex-col items-end justify-start flex-1 p-8 space-y-4 text-left md:p-12 lg:p-16">
@@ -25,24 +25,31 @@ export const UI = () => {
                      </svg>
                   </div>
 
-                  <h2 className="mt-4 mb-2 text-xl font-semibold text-purple-400 uppercase md:text-2xl">
-                     Welcome to TrainEase
-                  </h2>
-                  <h1 className="mb-4 text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
+                  {/* Mobile title */}
+                  <h1 className="mb-4 text-3xl font-bold leading-tight md:hidden">
+                     Book your train journey from Vijay
+                  </h1>
+
+                  {/* Desktop title */}
+                  <h1 className="hidden mb-4 text-5xl font-bold leading-tight md:block md:text-6xl lg:text-7xl">
                      Book Your Train Journey Instantly
                   </h1>
-                  <p className="max-w-md mb-4 text-lg md:text-xl">
-                     Plan your travel with real-time train schedules, seat availability, and fare
-                     details across India.
-                  </p>
-                  <p className="max-w-md mb-4 text-lg md:text-xl">
-                     Choose from Sleeper, AC, or General classes and get your tickets confirmed
-                     securely within minutes.
-                  </p>
-                  <p className="max-w-md mb-8 text-lg md:text-xl">
-                     We also provide platform information, live train running status, and
-                     personalized travel suggestions for a seamless experience.
-                  </p>
+
+                  {/* Descriptions (hidden on mobile) */}
+                  <div className="hidden md:block">
+                     <p className="max-w-md mb-4 text-lg md:text-xl">
+                        Plan your travel with real-time train schedules, seat availability, and fare
+                        details across India.
+                     </p>
+                     <p className="max-w-md mb-4 text-lg md:text-xl">
+                        Choose from Sleeper, AC, or General classes and get your tickets confirmed
+                        securely within minutes.
+                     </p>
+                     <p className="max-w-md mb-8 text-lg md:text-xl">
+                        We also provide platform information, live train running status, and
+                        personalized travel suggestions for a seamless experience.
+                     </p>
+                  </div>
                </div>
 
                {/* Right section (quick actions and info) */}
