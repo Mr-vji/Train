@@ -45,11 +45,9 @@ export const Experience = () => {
          <Track position={[-4.2, -1.2, -15.0]} />
          <Flor />
 
-         <ScrollControls pages={3} damping={0.5}>
-            <group position={[0, 0, 30]}>
-               <Trains />
-            </group>
-         </ScrollControls>
+         <group position={[0, 0, 30]}>
+            <Trains />
+         </group>
       </>
    );
 };
