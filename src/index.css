@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+   width: 100vw;
+   height: 100vh;
+}
+
+body {
+   margin: 0;
+   /* background-color: #17171b; */
+   scrollbar-color: #17171b #17171b;
+   scrollbar-width: none;
+   overflow: hidden;
+}
